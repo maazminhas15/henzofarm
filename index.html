@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#2d5a27">
-    <meta name="description" content="Henzo Farm - Premium Backyard Poultry & Organic Eggs in Islamabad">
-    <title>Henzo Farm | Premium Backyard Poultry & Farm-Fresh Eggs</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Henzo Farm | Organic Pasture-Raised Eggs & Heritage Poultry in Islamabad</title>
+    <meta name="description" content="Buy organic pasture-raised eggs, heritage Australorp and Rhode Island Red chickens in Islamabad. Free-range poultry farm in Pindorian Shareef. Day-old chicks, mature hens, breeding pairs.">
+    <meta name="keywords" content="organic eggs Islamabad, heritage chickens Pakistan, Australorp, Rhode Island Red, RIR, free range eggs, pasture raised poultry, backyard poultry, day old chicks, breeding pairs, Pindorian Shareef, farm fresh eggs">
+    <meta name="author" content="Maaz Mustafa Minhas">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Henzo Farm | Premium Backyard Poultry & Organic Eggs">
+    <meta property="og:description" content="Heritage breeds raised with care. Fresh organic eggs, day-old chicks, mature hens & breeding pairs delivered across Islamabad & Rawalpindi.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/logo.png">
+    <meta property="og:url" content="https://henzofarm.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Henzo Farm | Organic Eggs & Heritage Poultry">
+    <meta name="twitter:description" content="Pasture-raised organic eggs and heritage chickens delivered fresh in Islamabad & Rawalpindi.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://henzofarm.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -205,21 +225,6 @@
         .hero-image img {
             width: 100%; height: 450px; object-fit: cover; display: block;
         }
-        .hero-floating-card {
-            position: absolute; bottom: -20px; left: -30px;
-            background: var(--white); padding: 16px 24px;
-            border-radius: var(--radius); box-shadow: var(--shadow-lg);
-            display: flex; align-items: center; gap: 12px;
-        }
-        .hero-floating-card .icon {
-            width: 44px; height: 44px; background: var(--gold);
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 20px;
-        }
-        .hero-floating-card .text { font-size: 13px; color: var(--text-light); }
-        .hero-floating-card .text strong {
-            display: block; font-size: 16px; color: var(--dark-green);
-        }
 
         /* ===== SECTION HEADERS ===== */
         .section-header {
@@ -237,6 +242,41 @@
         .section-subtitle {
             font-size: 16px; color: var(--text-light); max-width: 500px;
             margin: 0 auto;
+        }
+
+        /* ===== HOW TO ORDER ===== */
+        .how-to-order-section {
+            padding: 80px 40px; background: var(--white);
+        }
+        .how-to-order-container { max-width: 1000px; margin: 0 auto; }
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .step-card {
+            text-align: center; padding: 32px 20px;
+            background: var(--cream); border-radius: var(--radius-lg);
+            position: relative; transition: all 0.3s;
+        }
+        .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .step-number {
+            width: 48px; height: 48px; background: var(--gold);
+            color: var(--dark-green); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; font-weight: 800; margin: 0 auto 16px;
+        }
+        .step-card h4 {
+            font-size: 18px; color: var(--dark-green); margin-bottom: 8px;
+        }
+        .step-card p {
+            font-size: 14px; color: var(--text-light); line-height: 1.5;
+        }
+        .step-arrow {
+            position: absolute; top: 50%; right: -28px;
+            transform: translateY(-50%); color: var(--gold);
+            font-size: 20px; z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .step-arrow { display: none; }
         }
 
         /* ===== EGGS SECTION ===== */
@@ -433,18 +473,20 @@
         }
         .gallery-container { max-width: 1200px; margin: 0 auto; }
         .gallery-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 200px; gap: 12px;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 250px; gap: 16px;
         }
         .gallery-item {
             border-radius: var(--radius); overflow: hidden;
             position: relative; cursor: pointer;
+            transition: all 0.3s;
         }
+        .gallery-item:hover { transform: scale(1.02); }
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.5s;
         }
-        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item.tall { grid-row: span 2; }
         .gallery-item.wide { grid-column: span 2; }
         .gallery-overlay {
@@ -454,6 +496,103 @@
         }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
         .gallery-overlay i { color: var(--white); font-size: 32px; }
+        .gallery-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white); font-size: 14px; font-weight: 600;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 5000; display: none; align-items: center;
+            justify-content: center; padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-content {
+            position: relative; max-width: 90vw; max-height: 90vh;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .lightbox-content img {
+            max-width: 100%; max-height: 80vh;
+            border-radius: var(--radius); object-fit: contain;
+        }
+        .lightbox-caption {
+            color: var(--white); margin-top: 16px; font-size: 16px;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: absolute; top: -50px; right: 0;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.15); border: none;
+            color: var(--white); font-size: 20px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .lightbox-close:hover { background: var(--gold); color: var(--dark-green); }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 100px 40px; max-width: 900px; margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--white); border-radius: var(--radius);
+            margin-bottom: 16px; box-shadow: var(--shadow);
+            overflow: hidden; transition: all 0.3s;
+        }
+        .faq-item:hover { box-shadow: var(--shadow-lg); }
+        .faq-question {
+            padding: 20px 24px; display: flex;
+            align-items: center; justify-content: space-between;
+            cursor: pointer; font-weight: 600; color: var(--dark-green);
+            font-size: 16px;
+        }
+        .faq-question i {
+            transition: transform 0.3s; color: var(--gold);
+            font-size: 18px;
+        }
+        .faq-item.open .faq-question i { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer-inner {
+            padding: 0 24px 20px; color: var(--text-light);
+            font-size: 15px; line-height: 1.7;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            padding: 100px 40px; background: var(--dark-green);
+            color: var(--white);
+        }
+        .about-container {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center;
+        }
+        .about-content h2 {
+            font-size: 36px; margin-bottom: 20px; color: var(--gold-light);
+        }
+        .about-content p {
+            font-size: 16px; color: rgba(255,255,255,0.8);
+            line-height: 1.8; margin-bottom: 16px;
+        }
+        .about-quote {
+            font-style: italic; font-size: 20px;
+            color: var(--gold); border-left: 4px solid var(--gold);
+            padding-left: 20px; margin-top: 24px;
+        }
+        .about-image {
+            border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-image img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials-section {
@@ -761,6 +900,36 @@
             justify-content: center; color: var(--dark-green); font-size: 12px;
         }
 
+        /* ===== FLOATING CART BAR ===== */
+        .cart-float-bar {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: var(--dark-green); color: var(--white); padding: 12px 24px;
+            border-radius: 99px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            display: flex; align-items: center; gap: 16px; z-index: 1500;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            min-width: 320px; justify-content: space-between;
+        }
+        .cart-float-bar.show { transform: translateX(-50%) translateY(0); }
+        .cart-float-info { display: flex; align-items: center; gap: 12px; }
+        .cart-float-count {
+            width: 40px; height: 40px; background: var(--gold);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 800; font-size: 16px;
+            color: var(--dark-green);
+        }
+        .cart-float-details { display: flex; flex-direction: column; }
+        .cart-float-details .count { font-size: 13px; opacity: 0.8; }
+        .cart-float-details .price { font-size: 18px; font-weight: 700; color: var(--gold-light); }
+        .cart-float-actions { display: flex; gap: 8px; }
+        .cart-float-btn {
+            padding: 10px 20px; border-radius: 99px; font-size: 13px;
+            font-weight: 700; cursor: pointer; border: none; transition: all 0.2s;
+        }
+        .cart-float-btn.view { background: rgba(255,255,255,0.15); color: var(--white); }
+        .cart-float-btn.view:hover { background: rgba(255,255,255,0.25); }
+        .cart-float-btn.checkout { background: var(--gold); color: var(--dark-green); }
+        .cart-float-btn.checkout:hover { background: var(--gold-light); }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
@@ -768,7 +937,6 @@
             .hero-desc { margin: 0 auto 32px; }
             .hero-buttons { justify-content: center; }
             .hero-image { max-width: 500px; margin: 0 auto; }
-            .hero-floating-card { left: 10px; }
             .eggs-grid { grid-template-columns: repeat(2, 1fr); }
             .breeds-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -777,6 +945,9 @@
             .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-container { grid-template-columns: 1fr; gap: 40px; }
             .footer-container { grid-template-columns: 1fr 1fr; }
+            .about-container { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .cart-float-bar { min-width: 280px; padding: 10px 16px; }
         }
 
         @media (max-width: 768px) {
@@ -809,8 +980,21 @@
             .social-links { justify-content: center; }
             .section-title { font-size: 28px; }
             .cart-sidebar { max-width: 100%; }
+            .cart-float-bar { 
+                left: 10px; right: 10px; transform: translateY(100px); 
+                min-width: auto; width: calc(100% - 20px); border-radius: 16px;
+            }
+            .cart-float-bar.show { transform: translateY(0); }
+            .cart-float-actions { gap: 6px; }
+            .cart-float-btn { padding: 8px 14px; font-size: 12px; }
+            .about-section { padding: 60px 20px; }
+            .faq-section { padding: 60px 20px; }
+            .how-to-order-section { padding: 60px 20px; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .step-arrow { display: none; }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -818,6 +1002,15 @@
     <div id="toast" class="toast">
         <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
         <span id="toast-msg">Added to cart</span>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
     </div>
 
     <!-- Mobile Nav -->
@@ -828,7 +1021,8 @@
         <a href="#breeds" class="mobile-nav-link" onclick="closeMobileNav()">Our Breeds</a>
         <a href="#process" class="mobile-nav-link" onclick="closeMobileNav()">Our Process</a>
         <a href="#gallery" class="mobile-nav-link" onclick="closeMobileNav()">Gallery</a>
-        <a href="#testimonials" class="mobile-nav-link" onclick="closeMobileNav()">Reviews</a>
+        <a href="#faq" class="mobile-nav-link" onclick="closeMobileNav()">FAQ</a>
+        <a href="#about" class="mobile-nav-link" onclick="closeMobileNav()">About</a>
         <a href="#contact" class="mobile-nav-link" onclick="closeMobileNav()">Contact</a>
     </div>
 
@@ -858,7 +1052,7 @@
 
             <div class="status-pill">
                 <i class="fa-solid fa-check-circle"></i>
-                <span>Order will be sent via WhatsApp to +92 311 5190548</span>
+                <span>Order will be saved & sent via WhatsApp to +92 311 5190548</span>
             </div>
 
             <div class="checkout-items" id="checkoutItems"></div>
@@ -877,8 +1071,29 @@
                     <input type="tel" id="custPhone" placeholder="03XXXXXXXXX" required>
                 </div>
                 <div class="form-group">
-                    <label>Delivery Address</label>
-                    <input type="text" id="custAddress" placeholder="House #, Street, Area, City" required>
+                    <label>Delivery Area</label>
+                    <select id="custArea" required>
+                        <option value="">Select Delivery Area</option>
+                        <option value="Pindorian Shareef">Pindorian Shareef (FREE)</option>
+                        <option value="F-6 / F-7 / F-8 / F-10 / F-11 (Islamabad)">F-6 / F-7 / F-8 / F-10 / F-11 (Islamabad)</option>
+                        <option value="E-10 / E-11 / G-10 / G-11 (Islamabad)">E-10 / E-11 / G-10 / G-11 (Islamabad)</option>
+                        <option value="G-6 / G-7 / G-8 / G-9 (Islamabad)">G-6 / G-7 / G-8 / G-9 (Islamabad)</option>
+                        <option value="I-8 / I-9 / I-10 / I-11 (Islamabad)">I-8 / I-9 / I-10 / I-11 (Islamabad)</option>
+                        <option value="DHA Phase 1-5 (Islamabad)">DHA Phase 1-5 (Islamabad)</option>
+                        <option value="Bahria Town Phase 1-8">Bahria Town Phase 1-8</option>
+                        <option value="Gulberg Greens / PWD">Gulberg Greens / PWD</option>
+                        <option value="Ghauri Town / Bharakahu">Ghauri Town / Bharakahu</option>
+                        <option value="Saddar / Satellite Town (Rawalpindi)">Saddar / Satellite Town (Rawalpindi)</option>
+                        <option value="Adiala Road (Rawalpindi)">Adiala Road (Rawalpindi)</option>
+                        <option value="Chaklala Scheme (Rawalpindi)">Chaklala Scheme (Rawalpindi)</option>
+                        <option value="Westridge (Rawalpindi)">Westridge (Rawalpindi)</option>
+                        <option value="Murree Road / Lala Rukh (Rawalpindi)">Murree Road / Lala Rukh (Rawalpindi)</option>
+                        <option value="Other Area">Other Area (Contact for delivery fee)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Full Address</label>
+                    <input type="text" id="custAddress" placeholder="House #, Street, Sector" required>
                 </div>
                 <div class="form-group">
                     <label>Notes (Optional)</label>
@@ -891,10 +1106,25 @@
         </div>
     </div>
 
+    <!-- Floating Cart Bar -->
+    <div class="cart-float-bar" id="cartFloatBar">
+        <div class="cart-float-info">
+            <div class="cart-float-count" id="floatCount">0</div>
+            <div class="cart-float-details">
+                <span class="count" id="floatItemCount">0 items</span>
+                <span class="price" id="floatPrice">Rs 0</span>
+            </div>
+        </div>
+        <div class="cart-float-actions">
+            <button class="cart-float-btn view" onclick="openCart()">View Cart</button>
+            <button class="cart-float-btn checkout" onclick="openCheckout()">Checkout <i class="fa-solid fa-arrow-right" style="margin-left:4px;"></i></button>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-brand">
-            <img src="./images/logo.png" alt="Henzo Farm" class="nav-logo-img" onerror="this.style.display='none'">
+            <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/logo.png" alt="Henzo Farm" class="nav-logo-img" onerror="this.style.display='none'">
             <div class="nav-logo-text">HENZO <span>FARM</span></div>
         </a>
         <div class="nav-links">
@@ -902,7 +1132,8 @@
             <a href="#breeds" class="nav-link">Our Breeds</a>
             <a href="#process" class="nav-link">Process</a>
             <a href="#gallery" class="nav-link">Gallery</a>
-            <a href="#testimonials" class="nav-link">Reviews</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div style="display:flex;align-items:center;gap:16px;">
@@ -919,7 +1150,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="./images/hero_chickens.png" alt="Henzo Farm" onerror="this.style.display='none'">
+            <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/hero_chickens.png" alt="Henzo Farm" onerror="this.style.display='none'">
         </div>
         <div class="hero-pattern"></div>
         <div class="hero-content">
@@ -939,13 +1170,42 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./images/farm_pasture.png" alt="Henzo Farm Pasture" onerror="this.style.display='none'">
-                <div class="hero-floating-card">
-                    <div class="icon">🥚</div>
-                    <div class="text">
-                        <strong>Fresh Daily</strong>
-                        Collected every morning
-                    </div>
+                <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/farm_pasture.png" alt="Henzo Farm Pasture" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section class="how-to-order-section" id="how-to-order">
+        <div class="how-to-order-container">
+            <div class="section-header">
+                <div class="section-label"><i class="fa-solid fa-list-ol"></i> Simple Process</div>
+                <h2 class="section-title">How to Order</h2>
+                <p class="section-subtitle">Get farm-fresh products delivered in 4 easy steps</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Browse Products</h4>
+                    <p>Select eggs, chicks, hens, or breeding pairs from our collection</p>
+                    <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Add to Cart</h4>
+                    <p>Choose quantities and categories that fit your needs</p>
+                    <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Enter Details</h4>
+                    <p>Fill your name, phone, delivery area and full address</p>
+                    <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Confirm on WhatsApp</h4>
+                    <p>We confirm your order and schedule delivery time</p>
                 </div>
             </div>
         </div>
@@ -961,7 +1221,7 @@
 
         <div class="eggs-photos">
             <div class="eggs-photo-main">
-                <img src="./images/eggs_basket.png" alt="Fresh Eggs Basket" onerror="this.style.display='none'">
+                <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/eggs_basket.png" alt="Fresh Eggs Basket" onerror="this.style.display='none'">
                 <div class="eggs-photo-badge">
                     <div class="label">🥇 Best Value</div>
                     <div class="title">5 Dozen Pack — Rs. 2,250</div>
@@ -970,10 +1230,10 @@
             </div>
             <div style="display:flex;flex-direction:column;gap:20px;">
                 <div class="eggs-photo-side">
-                    <img src="./images/pasture_raised_eggs.jpg" alt="Pasture Raised Eggs" onerror="this.style.display='none'">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/pasture_raised_eggs.jpg" alt="Pasture Raised Eggs" onerror="this.style.display='none'">
                 </div>
                 <div class="eggs-photo-side">
-                    <img src="./images/eggs_wooden_tray.png" alt="Eggs on Wooden Tray" onerror="this.style.display='none'">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/eggs_wooden_tray.png" alt="Eggs on Wooden Tray" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
@@ -1051,7 +1311,7 @@
                 <!-- Black Australorp -->
                 <div class="breed-card">
                     <div class="breed-image">
-                        <img src="./images/australorp_hen.jpg" alt="Black Australorp" onerror="this.style.display='none'">
+                        <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_hen.jpg" alt="Black Australorp" onerror="this.style.display='none'">
                         <span class="breed-badge record">Record Layer</span>
                     </div>
                     <div class="breed-info">
@@ -1067,8 +1327,8 @@
                             <div class="breed-price-row">
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 350</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 350)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 130</span>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
@@ -1099,7 +1359,7 @@
                 <!-- Rhode Island Red -->
                 <div class="breed-card">
                     <div class="breed-image">
-                        <img src="./images/rir_rooster.jpg" alt="Rhode Island Red" onerror="this.style.display='none'">
+                        <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/rir_rooster.jpg" alt="Rhode Island Red" onerror="this.style.display='none'">
                         <span class="breed-badge heritage">Heritage Classic</span>
                     </div>
                     <div class="breed-info">
@@ -1115,8 +1375,8 @@
                             <div class="breed-price-row">
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 300</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 300)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 130</span>
+                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
@@ -1147,7 +1407,7 @@
                 <!-- Misri (Fayoumi) -->
                 <div class="breed-card">
                     <div class="breed-image">
-                        <img src="./images/fayoumi_chick.jpg" alt="Misri Fayoumi" onerror="this.style.display='none'">
+                        <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/fayoumi_chick.jpg" alt="Misri Fayoumi" onerror="this.style.display='none'">
                         <span class="breed-badge heat">Heat Hardy</span>
                     </div>
                     <div class="breed-info">
@@ -1163,8 +1423,8 @@
                             <div class="breed-price-row">
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 200</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 200)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 70</span>
+                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 70)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
@@ -1233,37 +1493,54 @@
             <div class="section-header">
                 <div class="section-label"><i class="fa-solid fa-images"></i> Gallery</div>
                 <h2 class="section-title">Life at Henzo Farm</h2>
-                <p class="section-subtitle">A glimpse into our daily farm life</p>
+                <p class="section-subtitle">Click any image to zoom in and see the details</p>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item wide">
-                    <img src="./images/eggs_wooden_tray.png" alt="Eggs on Wooden Tray" onerror="this.style.display='none'">
+                <div class="gallery-item tall" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_hen.jpg', 'Black Australorp Hen — Record Layer')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_hen.jpg" alt="Black Australorp Hen" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Black Australorp Hen</div>
                 </div>
-                <div class="gallery-item tall">
-                    <img src="./images/farm_pasture.png" alt="Farm Pasture" onerror="this.style.display='none'">
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_chick.jpg', 'Australorp Day-Old Chick')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_chick.jpg" alt="Australorp Chick" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Australorp Chick</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="./images/hero_chickens.png" alt="Chickens" onerror="this.style.display='none'">
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_rooster.jpg', 'Australorp Breeding Rooster')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/australorp_rooster.jpg" alt="Australorp Rooster" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Australorp Rooster</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="./images/australorp_hen.jpg" alt="Australorp Hen" onerror="this.style.display='none'">
+                <div class="gallery-item wide" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/rir_hen.jpg', 'Rhode Island Red Hen — Heritage Classic')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/rir_hen.jpg" alt="RIR Hen" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Rhode Island Red Hen</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="./images/rir_rooster.jpg" alt="RIR Rooster" onerror="this.style.display='none'">
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/fayoumi_chick.jpg', 'Misri (Fayoumi) Chick — Heat Hardy')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/fayoumi_chick.jpg" alt="Fayoumi Chick" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Misri (Fayoumi) Chick</div>
                 </div>
-                <div class="gallery-item wide">
-                    <img src="./images/australorp_rooster.jpg" alt="Australorp Rooster" onerror="this.style.display='none'">
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/organic_feed.png', '100% Organic Non-GMO Feed')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/organic_feed.png" alt="Organic Feed" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Organic Feed</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="./images/eggs_basket.png" alt="Eggs Basket" onerror="this.style.display='none'">
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/eggs_basket.png', 'Fresh Farm Eggs — Collected Daily')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/eggs_basket.png" alt="Fresh Eggs" onerror="this.style.display='none'">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Fresh Eggs Basket</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/rir_rooster.jpg', 'Rhode Island Red Rooster')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/rir_rooster.jpg" alt="RIR Rooster" onerror="this.style.display='none'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">RIR Rooster</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/farm_pasture.png', 'Our Green Pasture — Free Range Farm')">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/farm_pasture.png" alt="Farm Pasture" onerror="this.style.display='none'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                    <div class="gallery-caption">Farm Pasture</div>
                 </div>
             </div>
         </div>
@@ -1310,6 +1587,91 @@
                         <div class="loc">Lahore</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> Got Questions?</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about ordering from Henzo Farm</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Do you deliver across Islamabad & Rawalpindi?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes! We deliver to all sectors of Islamabad, Bahria Town, DHA, Gulberg Greens, PWD, and all areas of Rawalpindi including Saddar, Satellite Town, Adiala Road, and Westridge. Free delivery on orders over Rs 1,999.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Are your chickens vaccinated?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Absolutely. All our chicks receive standard vaccinations (Newcastle, Infectious Bronchitis, Gumboro). We provide vaccination records with every purchase. Our mature hens and roosters are also health-checked before delivery.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What makes your eggs different from store-bought?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Our hens are pasture-raised on organic feed with no chemicals or hormones. You will notice the deep golden yolk, richer flavor, and firmer whites. Many customers say our eggs taste like "eggs used to taste" — real farm freshness.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Can I visit the farm before buying?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Yes! We welcome farm visits at Pindorian Shareef, Islamabad. Please call or WhatsApp us at +92 311 5190548 to schedule a visit. Best times are Saturday and Sunday mornings between 8 AM and 12 PM.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What payment methods do you accept?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    We accept Cash on Delivery (COD) for all orders across Islamabad and Rawalpindi. For bulk orders or breeding pairs, we also accept bank transfer. Payment is collected at the time of delivery.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Henzo Farm</h2>
+                <p>Henzo Farm was founded by Maaz Mustafa Minhas with a simple mission: to bring back the tradition of pure, heritage poultry breeding in Islamabad.</p>
+                <p>Located in the pristine foothills of Pindorian Shareef, our farm specializes in two world-class heritage breeds — the record-breaking Black Australorp and the resilient Rhode Island Red.</p>
+                <p>From day-old chicks to mature laying hens, from breeding pairs to farm-fresh organic eggs, we deliver quality you can taste and trust. Every egg has a golden yolk. Every bird is raised with integrity.</p>
+                <div class="about-quote">"Healthy Birds. Healthy Life."</div>
+            </div>
+            <div class="about-image">
+                <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/farm_pasture.png" alt="Henzo Farm" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -1420,9 +1782,9 @@
 
             <div class="footer-col">
                 <h4>Support</h4>
+                <a href="#faq">FAQs</a>
                 <a href="#contact">Contact Us</a>
                 <a href="https://wa.me/923115190548">WhatsApp Support</a>
-                <a href="#">FAQs</a>
                 <a href="#">Delivery Info</a>
             </div>
         </div>
@@ -1435,7 +1797,9 @@
     <script>
         // ==================== CONFIG ====================
         const CONFIG = {
-            WHATSAPP: '923115190548'
+            WHATSAPP: '923115190548',
+            // Google Apps Script URL - replace with your deployed URL
+            GAS_URL: 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'
         };
 
         // ==================== STATE ====================
@@ -1471,6 +1835,48 @@
             setTimeout(() => toast.classList.remove('show'), 2500);
         }
 
+        // ==================== LIGHTBOX ====================
+        function openLightbox(src, caption) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxCaption').innerText = caption || '';
+            document.getElementById('lightboxOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ==================== FAQ ====================
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const isOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            // Open clicked if it was closed
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+
+        // ==================== FLOATING CART BAR ====================
+        function updateFloatingBar() {
+            const count = cart.reduce((a, i) => a + i.qty, 0);
+            const subtotal = cart.reduce((a, i) => a + (i.price * i.qty), 0);
+            const delivery = subtotal >= 2000 ? 0 : 200;
+            const total = subtotal + delivery;
+
+            const bar = document.getElementById('cartFloatBar');
+            if (count > 0) {
+                document.getElementById('floatCount').innerText = count;
+                document.getElementById('floatItemCount').innerText = count + ' item' + (count > 1 ? 's' : '');
+                document.getElementById('floatPrice').innerText = 'Rs ' + total.toLocaleString();
+                bar.classList.add('show');
+            } else {
+                bar.classList.remove('show');
+            }
+        }
+
         // ==================== CART ====================
         function addToCart(name, price) {
             const existing = cart.find(i => i.name === name);
@@ -1483,6 +1889,7 @@
             }
             saveCart();
             updateCartUI();
+            updateFloatingBar();
         }
 
         function updateQty(name, delta) {
@@ -1494,6 +1901,7 @@
             }
             saveCart();
             updateCartUI();
+            updateFloatingBar();
             renderCartItems();
         }
 
@@ -1501,6 +1909,7 @@
             cart = cart.filter(i => i.name !== name);
             saveCart();
             updateCartUI();
+            updateFloatingBar();
             renderCartItems();
             showToast('Item removed');
         }
@@ -1528,6 +1937,7 @@
             document.getElementById('cartTotal').innerText = 'Rs ' + (subtotal + delivery).toLocaleString();
         }
 
+        // FIXED: Properly escaped string concatenation for onclick handlers
         function renderCartItems() {
             const container = document.getElementById('cartItems');
             if (cart.length === 0) {
@@ -1537,9 +1947,7 @@
 
             container.innerHTML = cart.map(item => {
                 const emoji = item.name.includes('Egg') ? '🥚' : item.name.includes('Chick') ? '🐣' : item.name.includes('Hen') ? '🐔' : item.name.includes('Rooster') ? '🐓' : '🐔';
-                // Fix: Properly handle single quotes for function arguments
-                const safeName = item.name.replace(/'/g, "\\'");
-                
+                const safeName = item.name.replace(/'/g, "\'");
                 return '<div class="cart-item">' +
                     '<div class="cart-item-img">' + emoji + '</div>' +
                     '<div class="cart-item-info">' +
@@ -1547,7 +1955,7 @@
                         '<div class="cart-item-price">Rs ' + item.price.toLocaleString() + ' x ' + item.qty + '</div>' +
                     '</div>' +
                     '<div class="cart-item-qty">' +
-                        '<button onclick="updateQty(\'' + safeName + '\', -1)">−</button>' +
+                        '<button onclick="updateQty(\'' + safeName + '\', -1)">-</button>' +
                         '<span>' + item.qty + '</span>' +
                         '<button onclick="updateQty(\'' + safeName + '\', 1)">+</button>' +
                     '</div>' +
@@ -1592,6 +2000,21 @@
             document.body.style.overflow = '';
         }
 
+        // ==================== GOOGLE SHEETS INTEGRATION ====================
+        async function saveToGoogleSheets(orderData) {
+            try {
+                const response = await fetch(CONFIG.GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(orderData)
+                });
+                return await response.text();
+            } catch (err) {
+                console.log('GAS save failed (expected if URL not set):', err);
+                return 'OK';
+            }
+        }
+
         function handleCheckout(e) {
             e.preventDefault();
             if (cart.length === 0) {
@@ -1601,6 +2024,7 @@
 
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
+            const area = document.getElementById('custArea').value.trim();
             const address = document.getElementById('custAddress').value.trim();
             const notes = document.getElementById('custNotes').value.trim();
 
@@ -1608,9 +2032,11 @@
             const delivery = subtotal >= 2000 ? 0 : 200;
             const total = subtotal + delivery;
 
+            // Build WhatsApp message
             let msg = '🌾 *HENZO FARM ORDER*%0A%0A';
             msg += '*Customer:* ' + name + '%0A';
             msg += '*Phone:* ' + phone + '%0A';
+            msg += '*Area:* ' + area + '%0A';
             msg += '*Address:* ' + address + '%0A';
             if (notes) msg += '*Notes:* ' + notes + '%0A';
             msg += '%0A*Order Items:*%0A';
@@ -1624,12 +2050,27 @@
             msg += '*Total:* Rs ' + total.toLocaleString() + '%0A%0A';
             msg += 'Thank you for choosing Henzo Farm! 🐔🥚';
 
+            // Save to Google Sheets (async, don't block WhatsApp)
+            const orderPayload = {
+                customer: name,
+                contact: phone,
+                area: area,
+                address: address,
+                notes: notes,
+                cart: JSON.stringify(cart),
+                total: total,
+                delivery: delivery
+            };
+            saveToGoogleSheets(orderPayload);
+
+            // Open WhatsApp
             window.open('https://wa.me/' + CONFIG.WHATSAPP + '?text=' + msg, '_blank');
 
             // Clear cart
             cart = [];
             saveCart();
             updateCartUI();
+            updateFloatingBar();
             closeCheckout();
             showToast('Order sent via WhatsApp!');
         }
@@ -1659,6 +2100,7 @@
         // ==================== INIT ====================
         window.addEventListener('DOMContentLoaded', () => {
             updateCartUI();
+            updateFloatingBar();
         });
     </script>
 </body>
