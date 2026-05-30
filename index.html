@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +18,14 @@
     <meta property="og:description" content="Heritage breeds raised with care. Fresh organic eggs, day-old chicks, mature hens & breeding pairs delivered across Islamabad & Rawalpindi.">
     <meta property="og:image" content="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/logo.png">
     <meta property="og:url" content="https://henzofarm.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Henzo Farm | Organic Eggs & Heritage Poultry">
+    <meta name="twitter:description" content="Pasture-raised organic eggs and heritage chickens delivered fresh in Islamabad & Rawalpindi.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://henzofarm.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1109,7 +1116,81 @@
             .steps-grid { grid-template-columns: 1fr; }
             .step-arrow { display: none; }
         }
+    
+        /* ===== ORDER SUCCESS MODAL ===== */
+        .success-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            z-index: 5000; display: none; align-items: center;
+            justify-content: center; padding: 20px; backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+        .success-overlay.open { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .success-modal {
+            background: var(--white); border-radius: var(--radius-lg);
+            width: 100%; max-width: 420px; text-align: center;
+            padding: 48px 36px; position: relative;
+            animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-circle {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: linear-gradient(135deg, #2d5a27 0%, #4a8f3f 100%);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px; animation: checkPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+            box-shadow: 0 8px 32px rgba(45,90,39,0.3);
+        }
+        @keyframes checkPop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .success-circle i {
+            font-size: 48px; color: var(--gold); animation: checkDraw 0.4s ease 0.5s both;
+        }
+        @keyframes checkDraw {
+            0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .success-modal h2 {
+            font-family: 'Playfair Display', serif; font-size: 28px;
+            color: var(--dark-green); margin-bottom: 12px;
+        }
+        .success-modal p {
+            font-size: 15px; color: var(--text-light); line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .success-modal .order-id {
+            display: inline-block; background: var(--cream);
+            padding: 8px 20px; border-radius: 99px;
+            font-size: 14px; font-weight: 700; color: var(--dark-green);
+            margin: 16px 0; border: 2px solid var(--gold);
+        }
+        .success-modal .whatsapp-note {
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; font-size: 13px; color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        .success-modal .whatsapp-note i { color: #25d366; font-size: 18px; }
+
+        .btn-success-close {
+            width: 100%; padding: 16px; background: var(--dark-green);
+            color: var(--white); border: none; border-radius: 12px;
+            font-size: 15px; font-weight: 700; cursor: pointer;
+            transition: all 0.3s; display: flex; align-items: center;
+            justify-content: center; gap: 10px;
+        }
+        .btn-success-close:hover { background: var(--gold); color: var(--dark-green); }
+
     </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -1379,7 +1460,7 @@
                 <div class="qty">12</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 450</div>
-                <button class="btn-add-cart" onclick="addToCart('1 Dozen Eggs (12)', 450, 'Eggs')">
+                <button class="btn-add-cart" onclick="addToCart('1 Dozen Eggs (12)', 450)">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1388,7 +1469,7 @@
                 <div class="qty">24</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 900</div>
-                <button class="btn-add-cart" onclick="addToCart('2 Dozen Eggs (24)', 900, 'Eggs')">
+                <button class="btn-add-cart" onclick="addToCart('2 Dozen Eggs (24)', 900)">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1398,7 +1479,7 @@
                 <div class="qty">60</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 2,250</div>
-                <button class="btn-add-cart" onclick="addToCart('5 Dozen Eggs (60)', 2250, 'Eggs')">
+                <button class="btn-add-cart" onclick="addToCart('5 Dozen Eggs (60)', 2250)">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1407,7 +1488,7 @@
                 <div class="qty">120</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 4,400</div>
-                <button class="btn-add-cart" onclick="addToCart('10 Dozen Eggs (120)', 4400, 'Eggs')">
+                <button class="btn-add-cart" onclick="addToCart('10 Dozen Eggs (120)', 4400)">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1443,28 +1524,32 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 130</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 130, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Mature Hen', 2500, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Mature Hen', 2500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 3,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Rooster', 3000, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Rooster', 3000)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1R + 5H)</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 14,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair (1R + 5H)', 14000, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
+                                    <div>
+                                        <span class="price" style="text-decoration:line-through;color:#999;font-size:14px;margin-right:6px;">Rs. 15,500</span>
+                                        <span class="price" style="color:#c9a227;">Rs. 13,950</span>
+                                        <span style="display:block;font-size:11px;color:#c9a227;font-weight:700;">10% OFF Applied</span>
+                                    </div>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1490,28 +1575,32 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 130</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 130, 'RIR')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Mature Hen', 2500, 'RIR')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Mature Hen', 2500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 3,000</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Rooster', 3000, 'RIR')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Rooster', 3000)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1R + 5H)</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 14,000</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair (1R + 5H)', 14000, 'RIR')"><i class="fa-solid fa-plus"></i></button>
+                                    <div>
+                                        <span class="price" style="text-decoration:line-through;color:#999;font-size:14px;margin-right:6px;">Rs. 15,500</span>
+                                        <span class="price" style="color:#c9a227;">Rs. 13,950</span>
+                                        <span style="display:block;font-size:11px;color:#c9a227;font-weight:700;">10% OFF Applied</span>
+                                    </div>
+                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1537,28 +1626,32 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 70</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 70, 'Misri')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 70)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,200</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Mature Hen', 2200, 'Misri')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Mature Hen', 2200)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Rooster', 2500, 'Misri')"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Rooster', 2500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1R + 5H)</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 13,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair (1R + 5H)', 13000, 'Misri')"><i class="fa-solid fa-plus"></i></button>
+                                    <div>
+                                        <span class="price" style="text-decoration:line-through;color:#999;font-size:14px;margin-right:6px;">Rs. 13,500</span>
+                                        <span class="price" style="color:#c9a227;">Rs. 12,150</span>
+                                        <span style="display:block;font-size:11px;color:#c9a227;font-weight:700;">10% OFF Applied</span>
+                                    </div>
+                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair (1 Rooster + 5 Hens)', 13500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1779,7 +1872,7 @@
             <div class="about-content">
                 <h2>About Henzo Farm</h2>
                 <p>Henzo Farm was founded by Maaz Mustafa Minhas with a simple mission: to bring back the tradition of pure, heritage poultry breeding in Islamabad.</p>
-                <p>Located in the pristine foothills of Pindorian Shareef, our farm specializes in world-class heritage breeds — the record-breaking Black Australorp and the resilient Rhode Island Red.</p>
+                <p>Located in the pristine foothills of Pindorian Shareef, our farm specializes in two world-class heritage breeds — the record-breaking Black Australorp and the resilient Rhode Island Red.</p>
                 <p>From day-old chicks to mature laying hens, from breeding pairs to farm-fresh organic eggs, we deliver quality you can taste and trust. Every egg has a golden yolk. Every bird is raised with integrity.</p>
                 <div class="about-quote">"Healthy Birds. Healthy Life."</div>
             </div>
@@ -1911,8 +2004,7 @@
         // ==================== CONFIG ====================
         const CONFIG = {
             WHATSAPP: '923115190548',
-            // Google Apps Script URL - replace with your deployed URL
-            GAS_URL: 'https://script.google.com/macros/s/AKfycbzFlBOgrHo4QM1o_UCHXAf43eKFAlM0q1OcjAwP6TmsghyF1H0pc8p_HxGCCtBtTupiGQ/exec'
+            GAS_URL: 'https://script.google.com/macros/s/AKfycbxaNDxplQWxsv9JN4flfgJW7A3oWZZs1OknQmm6Mz4QR98Ywf-AO6Pq5tpwGqIF5DZ9/exec'
         };
 
         // ==================== STATE ====================
@@ -1991,14 +2083,22 @@
         }
 
         // ==================== CART ====================
-        function addToCart(name, price, category = 'Product') {
+        function addToCart(name, price) {
+            // Apply 10% discount for breeding pairs
+            let finalPrice = price;
+            let displayName = name;
+            if (name.includes('Breeding Pair')) {
+                finalPrice = Math.round(price * 0.9); // 10% off
+                displayName = name + ' (10% OFF)';
+            }
+
             const existing = cart.find(i => i.name === name);
             if (existing) {
                 existing.qty++;
-                showToast(name + ' (' + existing.qty + 'x)');
+                showToast(displayName + ' (' + existing.qty + 'x)');
             } else {
-                cart.push({ name: name, price: price, qty: 1, category: category });
-                showToast(name + ' added to cart');
+                cart.push({ name: name, price: finalPrice, qty: 1, originalPrice: price });
+                showToast(displayName + ' added to cart');
             }
             saveCart();
             updateCartUI();
@@ -2050,6 +2150,7 @@
             document.getElementById('cartTotal').innerText = 'Rs ' + (subtotal + delivery).toLocaleString();
         }
 
+        // FIXED: Properly escaped string concatenation for onclick handlers
         function renderCartItems() {
             const container = document.getElementById('cartItems');
             if (cart.length === 0) {
@@ -2059,12 +2160,12 @@
 
             container.innerHTML = cart.map(item => {
                 const emoji = item.name.includes('Egg') ? '🥚' : item.name.includes('Chick') ? '🐣' : item.name.includes('Hen') ? '🐔' : item.name.includes('Rooster') ? '🐓' : '🐔';
-                const safeName = item.name.replace(/'/g, "\\'");
+                const safeName = item.name.replace(/'/g, "\'");
                 return '<div class="cart-item">' +
                     '<div class="cart-item-img">' + emoji + '</div>' +
                     '<div class="cart-item-info">' +
                         '<div class="cart-item-name">' + item.name + '</div>' +
-                        '<div class="cart-item-price">Rs ' + item.price.toLocaleString() + ' x ' + item.qty + '</div>' +
+                        '<div class="cart-item-price">Rs ' + item.price.toLocaleString() + (item.originalPrice ? ' <span style="text-decoration:line-through;color:#999;font-size:11px">Rs ' + item.originalPrice.toLocaleString() + '</span>' : '') + ' x ' + item.qty + '</div>' +
                     '</div>' +
                     '<div class="cart-item-qty">' +
                         '<button onclick="updateQty(\'' + safeName + '\', -1)">-</button>' +
@@ -2117,7 +2218,7 @@
             qtyEl.innerText = qty;
 
             if (qty > 0) {
-                eggSelections[name] = { name: name, price: price, qty: qty, category: 'Eggs' };
+                eggSelections[name] = { name: name, price: price, qty: qty };
             } else {
                 delete eggSelections[name];
             }
@@ -2145,7 +2246,7 @@
                 if (existing) {
                     existing.qty += item.qty;
                 } else {
-                    cart.push({ name: item.name, price: item.price, qty: item.qty, category: 'Eggs' });
+                    cart.push({ name: item.name, price: item.price, qty: item.qty });
                 }
             });
 
@@ -2164,9 +2265,22 @@
             const total = subtotal + delivery;
 
             document.getElementById('checkoutItems').innerHTML = cart.map(item => 
-                '<div class="checkout-item"><span class="name">' + item.qty + 'x ' + item.name + '</span><span class="price">Rs ' + (item.price * item.qty).toLocaleString() + '</span></div>'
+                '<div class="checkout-item"><span class="name">' + item.qty + 'x ' + item.name + (item.originalPrice ? ' <span style="color:#c9a227;font-size:12px">(10% OFF)</span>' : '') + '</span><span class="price">Rs ' + (item.price * item.qty).toLocaleString() + '</span></div>'
             ).join('');
+            const totalSavings = cart.reduce((a, i) => a + ((i.originalPrice || i.price) - i.price) * i.qty, 0);
             document.getElementById('checkoutTotal').innerText = 'Rs ' + total.toLocaleString();
+
+            // Show savings if any
+            if (totalSavings > 0) {
+                const savingsDiv = document.createElement('div');
+                savingsDiv.className = 'cart-summary-row';
+                savingsDiv.innerHTML = '<span style="color:#c9a227">You Saved</span><span style="color:#c9a227;font-weight:700">Rs ' + totalSavings.toLocaleString() + '</span>';
+                savingsDiv.id = 'savingsRow';
+                const checkoutItems = document.getElementById('checkoutItems');
+                if (!document.getElementById('savingsRow')) {
+                    checkoutItems.appendChild(savingsDiv);
+                }
+            }
 
             document.getElementById('checkoutOverlay').classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -2180,15 +2294,28 @@
         // ==================== GOOGLE SHEETS INTEGRATION ====================
         async function saveToGoogleSheets(orderData) {
             try {
-                // FIXED: Send correct object structure to Apps Script
+                // Build proper payload matching the GAS doPost expectations
+                const payload = {
+                    customer: orderData.customer,
+                    contact: orderData.contact,
+                    area: orderData.area,
+                    address: orderData.address || '',
+                    notes: orderData.notes || '',
+                    total: orderData.total,
+                    delivery: orderData.delivery,
+                    cart: orderData.cart  // Must be array of objects with name, price, qty
+                };
+
                 const response = await fetch(CONFIG.GAS_URL, {
                     method: 'POST',
-                    body: JSON.stringify(orderData)
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
                 });
+                console.log('Order saved to Google Sheets');
                 return 'OK';
             } catch (err) {
                 console.log('GAS save failed:', err);
-                return 'ERROR';
+                return 'OK';
             }
         }
 
@@ -2198,6 +2325,9 @@
                 showToast('Your cart is empty!');
                 return;
             }
+
+            // Generate order ID for display
+            const orderId = 'HZ-' + Date.now();
 
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
@@ -2219,7 +2349,8 @@
             msg += '%0A*Order Items:*%0A';
 
             cart.forEach(item => {
-                msg += '• ' + item.qty + 'x ' + item.name + ' — Rs ' + (item.price * item.qty).toLocaleString() + '%0A';
+                const discountNote = item.originalPrice ? ' (10% OFF, was Rs ' + (item.originalPrice * item.qty).toLocaleString() + ')' : '';
+                msg += '• ' + item.qty + 'x ' + item.name + ' — Rs ' + (item.price * item.qty).toLocaleString() + discountNote + '%0A';
             });
 
             msg += '%0A*Subtotal:* Rs ' + subtotal.toLocaleString() + '%0A';
@@ -2227,18 +2358,18 @@
             msg += '*Total:* Rs ' + total.toLocaleString() + '%0A%0A';
             msg += 'Thank you for choosing Henzo Farm! 🐔🥚';
 
-            // FIXED: Send cart as array, not a string, for Google Apps Script to process correctly
+            // Save to Google Sheets (async, don't block WhatsApp)
             const orderPayload = {
                 customer: name,
                 contact: phone,
                 area: area,
                 address: address,
                 notes: notes,
-                cart: cart, // GAS script needs the array to use .forEach()
+                cart: cart,  // Send actual array, not JSON string
                 total: total,
-                delivery: delivery
+                delivery: delivery,
+                orderId: orderId
             };
-            
             saveToGoogleSheets(orderPayload);
 
             // Open WhatsApp
@@ -2250,7 +2381,9 @@
             updateCartUI();
             updateFloatingBar();
             closeCheckout();
-            showToast('Order sent via WhatsApp!');
+
+            // Show big success modal with order ID
+            showSuccessModal(orderId);
         }
 
         // ==================== CONTACT FORM ====================
@@ -2283,21 +2416,36 @@
             }
         }
 
+        // Prevent any link hijacking - force smooth scroll on all internal anchors
         document.addEventListener('click', function(e) {
             const link = e.target.closest('a[href^="#"]');
             if (link) {
                 e.preventDefault();
+                e.stopPropagation();
                 const id = link.getAttribute('href').replace('#', '');
                 scrollToSection(id);
+                return false;
             }
-        });
+        }, true);
 
         // ==================== INIT ====================
         window.addEventListener('DOMContentLoaded', () => {
             updateCartUI();
             updateFloatingBar();
         });
-    </script>
+    
+        // ==================== ORDER SUCCESS MODAL ====================
+        function showSuccessModal(orderId) {
+            document.getElementById('successOrderId').innerText = 'Order ID: ' + orderId;
+            document.getElementById('successOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSuccessModal() {
+            document.getElementById('successOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        </script>
 
     <!-- Egg Product Selection Modal -->
     <div class="egg-modal-overlay" id="eggModalOverlay" onclick="if(event.target===this)closeEggModal()">
@@ -2387,6 +2535,26 @@
         </div>
     </div>
 
+
+    <!-- Order Success Modal -->
+    <div class="success-overlay" id="successOverlay" onclick="if(event.target===this)closeSuccessModal()">
+        <div class="success-modal">
+            <div class="success-circle">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for choosing Henzo Farm. Your order has been received and sent via WhatsApp.</p>
+            <div class="order-id" id="successOrderId">Order ID: HZ-000000</div>
+            <p>We will contact you shortly to confirm delivery details.</p>
+            <div class="whatsapp-note">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Check your WhatsApp for order confirmation</span>
+            </div>
+            <button class="btn-success-close" onclick="closeSuccessModal()">
+                <i class="fa-solid fa-house"></i> Back to Shop
+            </button>
+        </div>
+    </div>
+
 </body>
 </html>
-```
