@@ -8,13 +8,13 @@
     <!-- SEO Meta Tags -->
     <title>Henzo Farm | Organic Pasture-Raised Eggs & Heritage Poultry in Islamabad</title>
     <meta name="description" content="Buy organic pasture-raised eggs, heritage Australorp and Rhode Island Red chickens in Islamabad. Free-range poultry farm in Pindorian Shareef. Day-old chicks, mature hens, breeding pairs.">
-    <meta name="keywords" content="organic eggs Islamabad, heritage chickens Pakistan, Australorp, Rhode Island Red, RIR, free range eggs, pasture raised poultry, backyard poultry, day old chicks, breeding pairs, Pindorian Shareef, farm fresh eggs">
+    <meta name="keywords" content="organic eggs Islamabad, heritage chickens Pakistan, Australorp, Rhode Island Red, RIR, free range eggs, pasture raised poultry, poultry, day old chicks, breeding pairs, Pindorian Shareef, farm fresh eggs">
     <meta name="author" content="Maaz Mustafa Minhas">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Henzo Farm | Premium Backyard Poultry & Organic Eggs">
+    <meta property="og:title" content="Henzo Farm | Premium Poultry & Organic Eggs">
     <meta property="og:description" content="Heritage breeds raised with care. Fresh organic eggs, day-old chicks, mature hens & breeding pairs delivered across Islamabad & Rawalpindi.">
     <meta property="og:image" content="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/logo.png">
     <meta property="og:url" content="https://henzofarm.com">
@@ -930,6 +930,129 @@
         .cart-float-btn.checkout { background: var(--gold); color: var(--dark-green); }
         .cart-float-btn.checkout:hover { background: var(--gold-light); }
 
+
+        /* ===== EGG MODAL ===== */
+        .egg-modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            z-index: 3500; display: none; align-items: center;
+            justify-content: center; padding: 20px; backdrop-filter: blur(4px);
+            overflow-y: auto;
+        }
+        .egg-modal-overlay.open { display: flex; }
+        .egg-modal {
+            background: var(--white); border-radius: var(--radius-lg);
+            width: 100%; max-width: 600px; max-height: 90vh;
+            overflow-y: auto; position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .egg-modal-close {
+            position: absolute; top: 16px; right: 16px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--cream); border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: var(--dark-green); z-index: 10;
+            transition: all 0.2s;
+        }
+        .egg-modal-close:hover { background: var(--gold); }
+        .egg-modal-header {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 24px;
+            padding: 32px 32px 20px;
+        }
+        .egg-modal-img {
+            border-radius: var(--radius); overflow: hidden;
+            height: 180px;
+        }
+        .egg-modal-img img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .egg-modal-info h2 {
+            font-size: 24px; color: var(--dark-green); margin-bottom: 8px;
+        }
+        .egg-modal-desc {
+            font-size: 14px; color: var(--text-light); line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .egg-modal-tags {
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .egg-modal-tags span {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 12px; background: var(--cream);
+            border-radius: 99px; font-size: 12px; color: var(--dark-green);
+            font-weight: 600;
+        }
+        .egg-modal-tags span i { color: var(--gold); font-size: 11px; }
+
+        .egg-modal-options { padding: 0 32px; }
+        .egg-option {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px; border: 2px solid var(--cream-dark);
+            border-radius: var(--radius); margin-bottom: 12px;
+            transition: all 0.2s; position: relative;
+        }
+        .egg-option:hover { border-color: var(--gold); }
+        .egg-option.popular { border-color: var(--gold); background: rgba(201,162,39,0.03); }
+        .egg-option-popular {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: var(--dark-green-deep);
+            padding: 4px 14px; border-radius: 99px; font-size: 11px;
+            font-weight: 800; text-transform: uppercase;
+        }
+        .egg-option-info { flex: 1; }
+        .egg-option-title { font-size: 18px; font-weight: 700; color: var(--dark-green); }
+        .egg-option-count { font-size: 13px; color: var(--text-light); }
+        .egg-option-price {
+            font-size: 18px; font-weight: 700; color: var(--dark-green);
+            min-width: 80px; text-align: right;
+        }
+        .egg-option-qty {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .egg-option-qty button {
+            width: 32px; height: 32px; border-radius: 8px;
+            border: 1px solid var(--cream-dark); background: var(--white);
+            cursor: pointer; display: flex; align-items: center;
+            justify-content: center; font-size: 16px; color: var(--dark-green);
+            transition: all 0.2s;
+        }
+        .egg-option-qty button:hover { background: var(--dark-green); color: var(--white); border-color: var(--dark-green); }
+        .egg-option-qty .qty-val {
+            font-weight: 700; min-width: 24px; text-align: center;
+            font-size: 16px; color: var(--dark-green);
+        }
+
+        .egg-modal-footer {
+            padding: 20px 32px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px;
+        }
+        .egg-modal-total {
+            display: flex; flex-direction: column;
+        }
+        .egg-modal-total span:first-child { font-size: 13px; color: var(--text-light); }
+        .egg-modal-total span:last-child {
+            font-size: 24px; font-weight: 800; color: var(--dark-green);
+        }
+        .btn-add-cart-lg {
+            padding: 16px 40px; background: var(--dark-green);
+            color: var(--white); border: none; border-radius: 12px;
+            font-size: 15px; font-weight: 700; cursor: pointer;
+            transition: all 0.3s; display: flex; align-items: center;
+            gap: 10px;
+        }
+        .btn-add-cart-lg:hover { background: var(--gold); color: var(--dark-green); }
+
+        @media (max-width: 768px) {
+            .egg-modal-header { grid-template-columns: 1fr; }
+            .egg-modal-img { height: 150px; }
+            .egg-modal-options { padding: 0 20px; }
+            .egg-modal-footer { flex-direction: column; padding: 20px; }
+            .btn-add-cart-lg { width: 100%; justify-content: center; }
+            .egg-option { flex-wrap: wrap; }
+            .egg-option-qty { margin-left: auto; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
@@ -1156,17 +1279,17 @@
         <div class="hero-content">
             <div>
                 <div class="hero-badge">
-                    <i class="fa-solid fa-leaf"></i> Premium Backyard Poultry & Organic Eggs
+                    <i class="fa-solid fa-leaf"></i> Premium Poultry & Organic Eggs
                 </div>
-                <h1 class="hero-title">Premium Backyard <span>Poultry</span> & Farm-Fresh <span>Eggs</span></h1>
+                <h1 class="hero-title">Premium <span>Poultry</span> & Farm-Fresh <span>Eggs</span></h1>
                 <p class="hero-desc">Heritage breeds raised with care on our family farm in Pindorian Shareef, Islamabad. From our pasture to your plate — fresh, organic, and ethically produced.</p>
                 <div class="hero-buttons">
-                    <a href="#eggs" class="btn-primary">
+                    <button class="btn-primary" onclick="openEggModal()" style="border:none;font-family:inherit;">
                         <span style="font-size:18px;">🥚</span> ORDER FRESH EGGS
-                    </a>
-                    <a href="#breeds" class="btn-secondary">
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('breeds')" style="border:2px solid rgba(255,255,255,0.3);font-family:inherit;background:transparent;">
                         EXPLORE OUR BREEDS <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="hero-image">
@@ -1755,7 +1878,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="logo">HENZO <span>FARM</span></div>
-                <p>Premium backyard poultry and organic eggs from our family farm in Pindorian Shareef, Islamabad. Raising heritage breeds with care since day one.</p>
+                <p>Premium poultry and organic eggs from our family farm in Pindorian Shareef, Islamabad. Raising heritage breeds with care since day one.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -1790,7 +1913,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Henzo Farm. All rights reserved. | Premium Backyard Poultry & Organic Eggs</p>
+            <p>© 2026 Henzo Farm. All rights reserved. | Premium Poultry & Organic Eggs</p>
         </div>
     </footer>
 
@@ -1799,7 +1922,7 @@
         const CONFIG = {
             WHATSAPP: '923115190548',
             // Google Apps Script URL - replace with your deployed URL
-            GAS_URL: 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'
+            GAS_URL: 'https://script.google.com/macros/s/AKfycbzFlBOgrHo4QM1o_UCHXAf43eKFAlM0q1OcjAwP6TmsghyF1H0pc8p_HxGCCtBtTupiGQ/exec'
         };
 
         // ==================== STATE ====================
@@ -1979,6 +2102,71 @@
             document.body.style.overflow = '';
         }
 
+        // ==================== EGG MODAL ====================
+        let eggSelections = {};
+
+        function openEggModal() {
+            eggSelections = {};
+            document.querySelectorAll('.egg-option .qty-val').forEach(el => el.innerText = '0');
+            document.getElementById('eggModalTotal').innerText = 'Rs. 0';
+            document.getElementById('eggModalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEggModal() {
+            document.getElementById('eggModalOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateEggQty(btn, delta) {
+            const option = btn.closest('.egg-option');
+            const name = option.dataset.name;
+            const price = parseInt(option.dataset.price);
+            const qtyEl = option.querySelector('.qty-val');
+            let qty = parseInt(qtyEl.innerText) + delta;
+            if (qty < 0) qty = 0;
+            qtyEl.innerText = qty;
+
+            if (qty > 0) {
+                eggSelections[name] = { name: name, price: price, qty: qty };
+            } else {
+                delete eggSelections[name];
+            }
+
+            updateEggModalTotal();
+        }
+
+        function updateEggModalTotal() {
+            let total = 0;
+            Object.values(eggSelections).forEach(item => {
+                total += item.price * item.qty;
+            });
+            document.getElementById('eggModalTotal').innerText = 'Rs. ' + total.toLocaleString();
+        }
+
+        function addEggSelectionToCart() {
+            const items = Object.values(eggSelections);
+            if (items.length === 0) {
+                showToast('Please select at least one option!');
+                return;
+            }
+
+            items.forEach(item => {
+                const existing = cart.find(i => i.name === item.name);
+                if (existing) {
+                    existing.qty += item.qty;
+                } else {
+                    cart.push({ name: item.name, price: item.price, qty: item.qty });
+                }
+            });
+
+            saveCart();
+            updateCartUI();
+            updateFloatingBar();
+            closeEggModal();
+            showToast(items.length + ' item(s) added to cart!');
+        }
+
         // ==================== CHECKOUT ====================
         function openCheckout() {
             closeCart();
@@ -2097,11 +2285,120 @@
             showToast('Message sent via WhatsApp!');
         }
 
+        // ==================== SMOOTH SCROLL ====================
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Prevent any link hijacking - force smooth scroll on all internal anchors
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href^="#"]');
+            if (link) {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = link.getAttribute('href').replace('#', '');
+                scrollToSection(id);
+                return false;
+            }
+        }, true);
+
         // ==================== INIT ====================
         window.addEventListener('DOMContentLoaded', () => {
             updateCartUI();
             updateFloatingBar();
         });
     </script>
+
+    <!-- Egg Product Selection Modal -->
+    <div class="egg-modal-overlay" id="eggModalOverlay" onclick="if(event.target===this)closeEggModal()">
+        <div class="egg-modal">
+            <button class="egg-modal-close" onclick="closeEggModal()"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="egg-modal-header">
+                <div class="egg-modal-img">
+                    <img src="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/eggs_basket.png" alt="Fresh Eggs" onerror="this.style.display='none'">
+                </div>
+                <div class="egg-modal-info">
+                    <h2>Organic Pasture Eggs</h2>
+                    <p class="egg-modal-desc">Golden yolks from happy, free-roaming hens. Collected fresh every morning from our pasture-raised flock.</p>
+                    <div class="egg-modal-tags">
+                        <span><i class="fa-solid fa-seedling"></i> 100% Pasture-Raised</span>
+                        <span><i class="fa-solid fa-wheat-awn"></i> Organic Feed</span>
+                        <span><i class="fa-solid fa-calendar-check"></i> Collected Daily</span>
+                        <span><i class="fa-solid fa-truck-fast"></i> Delivered Fresh</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="egg-modal-options">
+                <div class="egg-option" data-name="1 Dozen Eggs (12)" data-price="450">
+                    <div class="egg-option-info">
+                        <div class="egg-option-title">1 Dozen</div>
+                        <div class="egg-option-count">12 eggs</div>
+                    </div>
+                    <div class="egg-option-price">Rs. 450</div>
+                    <div class="egg-option-qty">
+                        <button onclick="updateEggQty(this, -1)">−</button>
+                        <span class="qty-val">0</span>
+                        <button onclick="updateEggQty(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="egg-option" data-name="2 Dozen Eggs (24)" data-price="900">
+                    <div class="egg-option-info">
+                        <div class="egg-option-title">2 Dozen</div>
+                        <div class="egg-option-count">24 eggs</div>
+                    </div>
+                    <div class="egg-option-price">Rs. 900</div>
+                    <div class="egg-option-qty">
+                        <button onclick="updateEggQty(this, -1)">−</button>
+                        <span class="qty-val">0</span>
+                        <button onclick="updateEggQty(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="egg-option popular" data-name="5 Dozen Eggs (60)" data-price="2250">
+                    <div class="egg-option-popular">POPULAR</div>
+                    <div class="egg-option-info">
+                        <div class="egg-option-title">5 Dozen</div>
+                        <div class="egg-option-count">60 eggs</div>
+                    </div>
+                    <div class="egg-option-price">Rs. 2,250</div>
+                    <div class="egg-option-qty">
+                        <button onclick="updateEggQty(this, -1)">−</button>
+                        <span class="qty-val">0</span>
+                        <button onclick="updateEggQty(this, 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="egg-option" data-name="10 Dozen Eggs (120)" data-price="4400">
+                    <div class="egg-option-info">
+                        <div class="egg-option-title">10 Dozen</div>
+                        <div class="egg-option-count">120 eggs</div>
+                    </div>
+                    <div class="egg-option-price">Rs. 4,400</div>
+                    <div class="egg-option-qty">
+                        <button onclick="updateEggQty(this, -1)">−</button>
+                        <span class="qty-val">0</span>
+                        <button onclick="updateEggQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="egg-modal-footer">
+                <div class="egg-modal-total">
+                    <span>Total</span>
+                    <span id="eggModalTotal">Rs. 0</span>
+                </div>
+                <button class="btn-add-cart-lg" onclick="addEggSelectionToCart()">
+                    <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
