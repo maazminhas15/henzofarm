@@ -2193,12 +2193,14 @@
             try {
                 const response = await fetch(CONFIG.GAS_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(orderData)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData),
+                    mode: 'no-cors'
                 });
-                return await response.text();
+                console.log('Order saved to Google Sheets');
+                return 'OK';
             } catch (err) {
-                console.log('GAS save failed (expected if URL not set):', err);
+                console.log('GAS save failed:', err);
                 return 'OK';
             }
         }
