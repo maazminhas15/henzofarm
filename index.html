@@ -1537,7 +1537,9 @@
 
             container.innerHTML = cart.map(item => {
                 const emoji = item.name.includes('Egg') ? '🥚' : item.name.includes('Chick') ? '🐣' : item.name.includes('Hen') ? '🐔' : item.name.includes('Rooster') ? '🐓' : '🐔';
-                const safeName = item.name.replace(/'/g, "\'");
+                // Fix: Properly handle single quotes for function arguments
+                const safeName = item.name.replace(/'/g, "\\'");
+                
                 return '<div class="cart-item">' +
                     '<div class="cart-item-img">' + emoji + '</div>' +
                     '<div class="cart-item-info">' +
@@ -1545,11 +1547,11 @@
                         '<div class="cart-item-price">Rs ' + item.price.toLocaleString() + ' x ' + item.qty + '</div>' +
                     '</div>' +
                     '<div class="cart-item-qty">' +
-                        '<button onclick="updateQty('' + safeName + '', -1)">−</button>' +
+                        '<button onclick="updateQty(\'' + safeName + '\', -1)">−</button>' +
                         '<span>' + item.qty + '</span>' +
-                        '<button onclick="updateQty('' + safeName + '', 1)">+</button>' +
+                        '<button onclick="updateQty(\'' + safeName + '\', 1)">+</button>' +
                     '</div>' +
-                    '<button class="cart-item-remove" onclick="removeItem('' + safeName + '')">' +
+                    '<button class="cart-item-remove" onclick="removeItem(\'' + safeName + '\')">' +
                         '<i class="fa-solid fa-trash"></i>' +
                     '</button>' +
                 '</div>';
