@@ -1118,6 +1118,7 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1442,7 +1443,6 @@
                         <p class="breed-desc">World-record egg layer with gentle temperament. Beautiful jet-black plumage with beetle-green sheen.</p>
                         <div class="breed-tags">
                             <span class="breed-tag">250+ eggs/year</span>
-                            <span class="breed-tag">3-4 kg</span>
                             <span class="breed-tag">Jet Black</span>
                             <span class="breed-tag">Gentle nature</span>
                         </div>
@@ -1469,10 +1469,10 @@
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 14,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair', 14000)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 15,500</span>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1490,7 +1490,6 @@
                         <p class="breed-desc">America's heritage dual-purpose breed. Hardy, productive, and stunning rich mahogany plumage.</p>
                         <div class="breed-tags">
                             <span class="breed-tag">280+ eggs/year</span>
-                            <span class="breed-tag">3-4 kg</span>
                             <span class="breed-tag">Rich Mahogany</span>
                             <span class="breed-tag">Hardy</span>
                         </div>
@@ -1517,10 +1516,10 @@
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 14,000</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair', 14000)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 15,500</span>
+                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1538,7 +1537,6 @@
                         <p class="breed-desc">Ancient Egyptian breed perfect for Pakistani climate. Exceptional heat tolerance with beautiful silver penciled plumage.</p>
                         <div class="breed-tags">
                             <span class="breed-tag">200+ eggs/year</span>
-                            <span class="breed-tag">1.5-2 kg</span>
                             <span class="breed-tag">Silver Penciled</span>
                             <span class="breed-tag">Heat tolerant</span>
                         </div>
@@ -1565,10 +1563,10 @@
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair</span>
+                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 13,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair', 13000)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 13,500</span>
+                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair (1 Rooster + 5 Hens)', 13500)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1919,11 +1917,10 @@
 
     <script>
         // ==================== CONFIG ====================
-        const CONFIG = {
-            WHATSAPP: '923115190548',
-            // Google Apps Script URL - replace with your deployed URL
-            GAS_URL: 'https://script.google.com/macros/s/AKfycbzFlBOgrHo4QM1o_UCHXAf43eKFAlM0q1OcjAwP6TmsghyF1H0pc8p_HxGCCtBtTupiGQ/exec'
-        };
+       const CONFIG = {
+    WHATSAPP: '923115190548',
+    GAS_URL: 'https://script.google.com/macros/s/AKfycbxaNDxplQWxsv9JN4flfgJW7A3oWZZs1OknQmm6Mz4QR98Ywf-AO6Pq5tpwGqIF5DZ9/exec'
+};
 
         // ==================== STATE ====================
         let cart = JSON.parse(localStorage.getItem('henzo_cart_v7')) || [];
@@ -2191,10 +2188,22 @@
         // ==================== GOOGLE SHEETS INTEGRATION ====================
         async function saveToGoogleSheets(orderData) {
             try {
+                // Build proper payload matching the GAS doPost expectations
+                const payload = {
+                    customer: orderData.customer,
+                    contact: orderData.contact,
+                    area: orderData.area,
+                    address: orderData.address || '',
+                    notes: orderData.notes || '',
+                    total: orderData.total,
+                    delivery: orderData.delivery,
+                    cart: orderData.cart  // Must be array of objects with name, price, qty
+                };
+
                 const response = await fetch(CONFIG.GAS_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(orderData),
+                    body: JSON.stringify(payload),
                     mode: 'no-cors'
                 });
                 console.log('Order saved to Google Sheets');
@@ -2247,7 +2256,7 @@
                 area: area,
                 address: address,
                 notes: notes,
-                cart: JSON.stringify(cart),
+                cart: cart,  // Send actual array, not JSON string
                 total: total,
                 delivery: delivery
             };
