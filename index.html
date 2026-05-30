@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +19,6 @@
     <meta property="og:description" content="Heritage breeds raised with care. Fresh organic eggs, day-old chicks, mature hens & breeding pairs delivered across Islamabad & Rawalpindi.">
     <meta property="og:image" content="https://raw.githubusercontent.com/maazminhas15/henzofarm/main/images/logo.png">
     <meta property="og:url" content="https://henzofarm.com">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Henzo Farm | Organic Eggs & Heritage Poultry">
-    <meta name="twitter:description" content="Pasture-raised organic eggs and heritage chickens delivered fresh in Islamabad & Rawalpindi.">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://henzofarm.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1118,7 +1111,6 @@
         }
     </style>
 <base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
@@ -1387,7 +1379,7 @@
                 <div class="qty">12</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 450</div>
-                <button class="btn-add-cart" onclick="addToCart('1 Dozen Eggs (12)', 450)">
+                <button class="btn-add-cart" onclick="addToCart('1 Dozen Eggs (12)', 450, 'Eggs')">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1396,7 +1388,7 @@
                 <div class="qty">24</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 900</div>
-                <button class="btn-add-cart" onclick="addToCart('2 Dozen Eggs (24)', 900)">
+                <button class="btn-add-cart" onclick="addToCart('2 Dozen Eggs (24)', 900, 'Eggs')">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1406,7 +1398,7 @@
                 <div class="qty">60</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 2,250</div>
-                <button class="btn-add-cart" onclick="addToCart('5 Dozen Eggs (60)', 2250)">
+                <button class="btn-add-cart" onclick="addToCart('5 Dozen Eggs (60)', 2250, 'Eggs')">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1415,7 +1407,7 @@
                 <div class="qty">120</div>
                 <div class="eggs-count">eggs</div>
                 <div class="price">Rs. 4,400</div>
-                <button class="btn-add-cart" onclick="addToCart('10 Dozen Eggs (120)', 4400)">
+                <button class="btn-add-cart" onclick="addToCart('10 Dozen Eggs (120)', 4400, 'Eggs')">
                     <i class="fa-solid fa-plus"></i> Add to Cart
                 </button>
             </div>
@@ -1451,28 +1443,28 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 130</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Day-Old Chick', 130, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Mature Hen', 2500)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Mature Hen', 2500, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 3,000</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Rooster', 3000)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Rooster', 3000, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
+                                <span class="label">Breeding Pair (1R + 5H)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 15,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 14,000</span>
+                                    <button class="btn-sm" onclick="addToCart('Australorp Breeding Pair (1R + 5H)', 14000, 'Australorp')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1498,28 +1490,28 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 130</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 130)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Day-Old Chick', 130, 'RIR')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Mature Hen', 2500)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Mature Hen', 2500, 'RIR')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 3,000</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Rooster', 3000)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Rooster', 3000, 'RIR')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
+                                <span class="label">Breeding Pair (1R + 5H)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 15,500</span>
-                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair (1 Rooster + 5 Hens)', 15500)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 14,000</span>
+                                    <button class="btn-sm" onclick="addToCart('RIR Breeding Pair (1R + 5H)', 14000, 'RIR')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1545,28 +1537,28 @@
                                 <span class="label">Day-Old Chick</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 70</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 70)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Day-Old Chick', 70, 'Misri')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Mature Hen</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,200</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Mature Hen', 2200)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Mature Hen', 2200, 'Misri')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
                                 <span class="label">Breeding Rooster</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
                                     <span class="price">Rs. 2,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Rooster', 2500)"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Rooster', 2500, 'Misri')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                             <div class="breed-price-row">
-                                <span class="label">Breeding Pair (1 Rooster + 5 Hens)</span>
+                                <span class="label">Breeding Pair (1R + 5H)</span>
                                 <div style="display:flex;align-items:center;gap:12px;">
-                                    <span class="price">Rs. 13,500</span>
-                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair (1 Rooster + 5 Hens)', 13500)"><i class="fa-solid fa-plus"></i></button>
+                                    <span class="price">Rs. 13,000</span>
+                                    <button class="btn-sm" onclick="addToCart('Misri Breeding Pair (1R + 5H)', 13000, 'Misri')"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1787,7 +1779,7 @@
             <div class="about-content">
                 <h2>About Henzo Farm</h2>
                 <p>Henzo Farm was founded by Maaz Mustafa Minhas with a simple mission: to bring back the tradition of pure, heritage poultry breeding in Islamabad.</p>
-                <p>Located in the pristine foothills of Pindorian Shareef, our farm specializes in two world-class heritage breeds — the record-breaking Black Australorp and the resilient Rhode Island Red.</p>
+                <p>Located in the pristine foothills of Pindorian Shareef, our farm specializes in world-class heritage breeds — the record-breaking Black Australorp and the resilient Rhode Island Red.</p>
                 <p>From day-old chicks to mature laying hens, from breeding pairs to farm-fresh organic eggs, we deliver quality you can taste and trust. Every egg has a golden yolk. Every bird is raised with integrity.</p>
                 <div class="about-quote">"Healthy Birds. Healthy Life."</div>
             </div>
@@ -1917,10 +1909,11 @@
 
     <script>
         // ==================== CONFIG ====================
-       const CONFIG = {
-    WHATSAPP: '923115190548',
-    GAS_URL: 'https://script.google.com/macros/s/AKfycbxaNDxplQWxsv9JN4flfgJW7A3oWZZs1OknQmm6Mz4QR98Ywf-AO6Pq5tpwGqIF5DZ9/exec'
-};
+        const CONFIG = {
+            WHATSAPP: '923115190548',
+            // Google Apps Script URL - replace with your deployed URL
+            GAS_URL: 'https://script.google.com/macros/s/AKfycbzFlBOgrHo4QM1o_UCHXAf43eKFAlM0q1OcjAwP6TmsghyF1H0pc8p_HxGCCtBtTupiGQ/exec'
+        };
 
         // ==================== STATE ====================
         let cart = JSON.parse(localStorage.getItem('henzo_cart_v7')) || [];
@@ -1998,13 +1991,13 @@
         }
 
         // ==================== CART ====================
-        function addToCart(name, price) {
+        function addToCart(name, price, category = 'Product') {
             const existing = cart.find(i => i.name === name);
             if (existing) {
                 existing.qty++;
                 showToast(name + ' (' + existing.qty + 'x)');
             } else {
-                cart.push({ name: name, price: price, qty: 1 });
+                cart.push({ name: name, price: price, qty: 1, category: category });
                 showToast(name + ' added to cart');
             }
             saveCart();
@@ -2057,7 +2050,6 @@
             document.getElementById('cartTotal').innerText = 'Rs ' + (subtotal + delivery).toLocaleString();
         }
 
-        // FIXED: Properly escaped string concatenation for onclick handlers
         function renderCartItems() {
             const container = document.getElementById('cartItems');
             if (cart.length === 0) {
@@ -2067,7 +2059,7 @@
 
             container.innerHTML = cart.map(item => {
                 const emoji = item.name.includes('Egg') ? '🥚' : item.name.includes('Chick') ? '🐣' : item.name.includes('Hen') ? '🐔' : item.name.includes('Rooster') ? '🐓' : '🐔';
-                const safeName = item.name.replace(/'/g, "\'");
+                const safeName = item.name.replace(/'/g, "\\'");
                 return '<div class="cart-item">' +
                     '<div class="cart-item-img">' + emoji + '</div>' +
                     '<div class="cart-item-info">' +
@@ -2125,7 +2117,7 @@
             qtyEl.innerText = qty;
 
             if (qty > 0) {
-                eggSelections[name] = { name: name, price: price, qty: qty };
+                eggSelections[name] = { name: name, price: price, qty: qty, category: 'Eggs' };
             } else {
                 delete eggSelections[name];
             }
@@ -2153,7 +2145,7 @@
                 if (existing) {
                     existing.qty += item.qty;
                 } else {
-                    cart.push({ name: item.name, price: item.price, qty: item.qty });
+                    cart.push({ name: item.name, price: item.price, qty: item.qty, category: 'Eggs' });
                 }
             });
 
@@ -2188,29 +2180,15 @@
         // ==================== GOOGLE SHEETS INTEGRATION ====================
         async function saveToGoogleSheets(orderData) {
             try {
-                // Build proper payload matching the GAS doPost expectations
-                const payload = {
-                    customer: orderData.customer,
-                    contact: orderData.contact,
-                    area: orderData.area,
-                    address: orderData.address || '',
-                    notes: orderData.notes || '',
-                    total: orderData.total,
-                    delivery: orderData.delivery,
-                    cart: orderData.cart  // Must be array of objects with name, price, qty
-                };
-
+                // FIXED: Send correct object structure to Apps Script
                 const response = await fetch(CONFIG.GAS_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                    mode: 'no-cors'
+                    body: JSON.stringify(orderData)
                 });
-                console.log('Order saved to Google Sheets');
                 return 'OK';
             } catch (err) {
                 console.log('GAS save failed:', err);
-                return 'OK';
+                return 'ERROR';
             }
         }
 
@@ -2249,17 +2227,18 @@
             msg += '*Total:* Rs ' + total.toLocaleString() + '%0A%0A';
             msg += 'Thank you for choosing Henzo Farm! 🐔🥚';
 
-            // Save to Google Sheets (async, don't block WhatsApp)
+            // FIXED: Send cart as array, not a string, for Google Apps Script to process correctly
             const orderPayload = {
                 customer: name,
                 contact: phone,
                 area: area,
                 address: address,
                 notes: notes,
-                cart: cart,  // Send actual array, not JSON string
+                cart: cart, // GAS script needs the array to use .forEach()
                 total: total,
                 delivery: delivery
             };
+            
             saveToGoogleSheets(orderPayload);
 
             // Open WhatsApp
@@ -2304,17 +2283,14 @@
             }
         }
 
-        // Prevent any link hijacking - force smooth scroll on all internal anchors
         document.addEventListener('click', function(e) {
             const link = e.target.closest('a[href^="#"]');
             if (link) {
                 e.preventDefault();
-                e.stopPropagation();
                 const id = link.getAttribute('href').replace('#', '');
                 scrollToSection(id);
-                return false;
             }
-        }, true);
+        });
 
         // ==================== INIT ====================
         window.addEventListener('DOMContentLoaded', () => {
@@ -2413,3 +2389,4 @@
 
 </body>
 </html>
+```
